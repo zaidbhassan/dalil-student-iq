@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101d35">
+  <meta name="description" content="دليل الطالب العراقي: منصة لتنظيم الدراسة والمواد والمراجعة.">
+  <title>دليل الطالب العراقي | Dalil Student IQ</title>
+  <style>
+    :root {
+      --navy: #101d35;
+      --blue: #315ce8;
+      --gold: #e9b85b;
+      --paper: #f5f7fb;
+      --ink: #19243a;
+      --muted: #69758a;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Tahoma, Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+
+    .container {
+      width: min(1120px, 92%);
+      margin-inline: auto;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 17px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 25px;
+    }
+
+    .brand small {
+      display: block;
+      color: #bdc8dc;
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: #e2e8f5;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero {
+      background:
+        radial-gradient(ellipse at 10% 20%, #29477c 0, transparent 42%),
+        var(--navy);
+      color: white;
+      padding: 76px 0 88px;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5.5vw, 60px);
+      line-height: 1.35;
+      margin: 14px 0;
+    }
+
+    h1 span { color: var(--gold); }
+
+    .hero-copy {
+      max-width: 570px;
+      color: #d1d9e9;
+      font-size: 17px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 27px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 21px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .primary { background: var(--gold); color: var(--navy); }
+    .secondary { border: 1px solid #64728c; color: white; }
+
+    .hero-card {
+      padding: 28px;
+      border: 1px solid #425476;
+      border-radius: 26px;
+      background: linear-gradient(145deg, #223658, #162541);
+      box-shadow: 0 25px 60px #0003;
+      transform: rotate(-2deg);
+    }
+
+    .hero-card .big-symbol {
+      display: grid;
+      place-items: center;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 20px;
+      background: #ffffff12;
+      color: var(--gold);
+      border-radius: 24px;
+      font-size: 48px;
+    }
+
+    .hero-card h2 { margin: 0 0 8px; font-size: 24px; }
+    .hero-card p { color: #c7d2e5; margin: 0; }
+
+    .mini-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .mini-row span {
+      padding: 6px 10px;
+      border-radius: 9px;
+      background: #ffffff12;
+      font-size: 12px;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: -27px;
+      position: relative;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid #e7ebf3;
+      box-shadow: 0 8px 25px #172b4d08;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat strong { display: block; font-size: 19px; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    section.content-section { padding: 68px 0 20px; }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .section-heading .eyebrow { color: var(--blue); margin: 0; }
+
+    .section-heading h2 {
+      font-size: clamp(25px, 4vw, 35px);
+      line-height: 1.4;
+      margin: 7px 0 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stage {
+      background: white;
+      border: 1px solid #e3e8f1;
+      border-radius: 18px;
+      padding: 23px;
+      text-align: right;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+      transition: .2s;
+    }
+
+    .stage:hover, .stage.active {
+      border-color: var(--blue);
+      box-shadow: 0 8px 25px #315ce815;
+      transform: translateY(-2px);
+    }
+
+    .stage-symbol {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      display: grid;
+      place-items: center;
+      background: #edf1ff;
+      color: var(--blue);
+      border-radius: 15px;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .stage strong { display: block; font-size: 15px; }
+    .stage small { display: block; color: var(--muted); font-size: 12px; }
+    .status { color: var(--blue); font-size: 12px; margin-top: 15px; }
+
+    .search {
+      width: min(290px, 100%);
+      padding: 11px 14px;
+      border: 1px solid #dce2ee;
+      border-radius: 12px;
+      background: white;
+      outline: none;
+    }
+
+    .search:focus { border-color: var(--blue); }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .subject {
+      background: white;
+      border: 1px solid #e6eaf2;
+      border-radius: 18px;
+      padding: 22px;
+      transition: .2s;
+    }
+
+    .subject:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px #172b4d0d;
+    }
+
+    .subject-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #edf1ff;
+      color: var(--blue);
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .subject h3 { margin: 13px 0 4px; font-size: 19px; }
+    .subject p { margin: 0 0 17px; color: var(--muted); font-size: 13px; }
+
+    .subject button {
+      width: 100%;
+      border: 1px solid #dfe5f0;
+      border-radius: 10px;
+      padding: 9px;
+      background: white;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .subject button:hover { background: #f0f3ff; }
+
+    .notice {
+      background: #fff8e9;
+      border: 1px solid #f3dfae;
+      border-radius: 13px;
+      padding: 14px 16px;
+      margin-top: 22px;
+      color: #74521a;
+      font-size: 13px;
+    }
+
+    .about {
+      margin-top: 70px;
+      margin-bottom: 55px;
+      padding: 35px;
+      border-radius: 22px;
+      background: #e9eefb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .about h2 { margin: 0 0 7px; }
+    .about p { color: var(--muted); margin: 0; }
+
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 28px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner p { color: #bdc8dc; margin: 0; }
+
+    .empty {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      background: white;
+      border-radius: 14px;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 760px) {
+      .hero { padding: 52px 0 65px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 35px; }
+      .hero-card { max-width: 460px; transform: none; }
+      .nav-links { gap: 13px; font-size: 12px; }
+      .header-cta { display: none; }
+      .stage-grid, .subject-grid { grid-template-columns: 1fr; }
+      .quick-stats { gap: 8px; }
+      .stat { padding: 14px 7px; }
+      .stat strong { font-size: 15px; }
+      .stat span { font-size: 11px; }
+      .section-heading { align-items: stretch; flex-direction: column; }
+      .search { width: 100%; }
+      .about { align-items: flex-start; flex-direction: column; padding: 25px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="الصفحة الرئيسية">
+        <span class="brand-icon">د</span>
+        <span>دليل الطالب<small>DALIL STUDENT IQ</small></span>
+      </a>
+      <nav class="nav-links" aria-label="التنقل">
+        <a href="#stages">المراحل</a>
+        <a href="#subjects">المواد</a>
+        <a href="#about">عن المنصة</a>
+      </nav>
+      <a class="btn primary header-cta" href="#stages">ابدأ الآن ←</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <p class="eyebrow">✦ منصة تعليمية للطلاب العراقيين</p>
+          <h1>مستقبلك الدراسي<br><span>يبدأ بخطوة.</span></h1>
+          <p class="hero-copy">
+            اكتشف المواد الدراسية، نظّم مراجعتك، وابنِ طريقك نحو فهم أفضل
+            واستعداد أقوى للامتحانات.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#stages">اختر مرحلتك ←</a>
+            <a class="btn secondary" href="#subjects">تصفح المواد</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="big-symbol">✦</div>
+          <h2>تعلّم بوضوح وثقة</h2>
+          <p>خطوات صغيرة ومنظمة تقرّبك من أهدافك الدراسية.</p>
+          <div class="mini-row">
+            <span>مواد دراسية</span>
+            <span>مراجعة منظمة</span>
+            <span>تعلّم مستمر</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container quick-stats" aria-label="خطوات الدراسة">
+      <div class="stat"><strong>01 · اختر</strong><span>المرحلة الدراسية</span></div>
+      <div class="stat"><strong>02 · اكتشف</strong><span>المواد المتاحة</span></div>
+      <div class="stat"><strong>03 · ابدأ</strong><span>رحلتك التعليمية</span></div>
+    </div>
+
+    <section class="content-section" id="stages">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ابدأ من مكانك</p>
+            <h2>اختر مرحلتك الدراسية</h2>
+          </div>
+          <p>اختر مرحلة لعرض المواد التجريبية.</p>
+        </div>
+
+        <div class="stage-grid">
+          <button class="stage active" type="button" data-stage="sixth">
+            <span class="stage-symbol">٦</span>
+            <span><strong>السادس الإعدادي</strong><small>الفرع العلمي · تجريبي</small></span>
+          </button>
+          <button class="stage" type="button" data-stage="third">
+            <span class="stage-symbol">٣</span>
+            <span><strong>الثالث المتوسط</strong><small>محتوى تجريبي</small></span>
+          </button>
+          <button class="stage" type="button" data-stage="future">
+            <span class="stage-symbol">＋</span>
+            <span><strong>مراحل أخرى</strong><small>تُضاف لاحقًا</small></span>
+          </button>
+        </div>
+        <p class="status" id="stage-status" role="status">
+          المرحلة المختارة: السادس الإعدادي العلمي.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section" id="subjects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">مساحتك للمراجعة</p>
+            <h2>المواد الدراسية</h2>
+          </div>
+          <input class="search" id="search" type="search"
+            placeholder="ابحث عن مادة..." aria-label="البحث عن مادة">
+        </div>
+
+        <div class="subject-grid" id="subject-grid">
+          <article class="subject" data-name="الرياضيات">
+            <div class="subject-icon">∑</div>
+            <h3>الرياضيات</h3>
+            <p>مفاهيم وتمارين للمراجعة.</p>
+            <button type="button" data-subject="الرياضيات">استكشف المادة ←</button>
+          </article>
+          <article class="subject" data-name="الفيزياء">
+            <div class="subject-icon">ϟ</div>
+            <h3>الفيزياء</h3>
+            <p>فهم القوانين وتطبيقاتها.</p>
+            <button type="button" data-subject="الفيزياء">استكشف المادة ←</button>
+          </article>
+          <article class="subject" data-name="الكيمياء">
+            <div class="subject-icon">⚗</div>
+            <h3>الكيمياء</h3>
+            <p>مراجعة المفاهيم والتفاعلات.</p>
+            <button type="button" data-subject="الكيمياء">استكشف المادة ←</button>
+          </article>
+          <article class="subject" data-name="الأحياء">
+            <div class="subject-icon">✿</div>
+            <h3>الأحياء</h3>
+            <p>مفاهيم علمية للمذاكرة.</p>
+            <button type="button" data-subject="الأحياء">استكشف المادة ←</button>
+          </article>
+          <article class="subject" data-name="اللغة العربية">
+            <div class="subject-icon">ع</div>
+            <h3>اللغة العربية</h3>
+            <p>قواعد وأدب وتطبيقات لغوية.</p>
+            <button type="button" data-subject="اللغة العربية">استكشف المادة ←</button>
+          </article>
+          <article class="subject" data-name="اللغة الإنجليزية">
+            <div class="subject-icon">A</div>
+            <h3>اللغة الإنجليزية</h3>
+            <p>مفردات وقواعد وممارسة.</p>
+            <button type="button" data-subject="اللغة الإنجليزية">استكشف المادة ←</button>
+          </article>
+        </div>
+
+        <p class="empty" id="empty" hidden>
+          لا توجد مادة مطابقة للبحث. جرّب كلمة أخرى.
+        </p>
+
+        <div class="notice">
+          تنبيه: هذه نسخة تجريبية للتصميم والتنقل. أسماء المواد أمثلة أولية؛
+          يجب التحقق من المناهج الرسمية قبل نشر محتوى تعليمي معتمد.
+        </div>
+      </div>
+    </section>
+
+    <section class="container about" id="about">
+      <div>
+        <p class="eyebrow">نتطور خطوة بخطوة</p>
+        <h2>التعلّم المنظّم يصنع فرقًا.</h2>
+        <p>هدفنا بناء منصة واضحة تساعد الطالب العراقي على تنظيم رحلته الدراسية.</p>
+      </div>
+      <a class="btn primary" href="#stages">ابدأ الآن ←</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <strong>دليل الطالب العراقي | Dalil Student IQ</strong>
+      <p>نسخة أولية قيد التطوير · 2026</p>
+      <a href="#">العودة للأعلى ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("search");
+    const cards = [...document.querySelectorAll(".subject")];
+    const emptyMessage = document.getElementById("empty");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLocaleLowerCase("ar");
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const name = card.dataset.name.toLocaleLowerCase("ar");
+        const matches = name.includes(query);
+        card.hidden = !matches;
+        if (matches) visibleCount++;
+      });
+
+      emptyMessage.hidden = visibleCount !== 0;
+    });
+
+    const stageStatus = document.getElementById("stage-status");
+
+    document.querySelectorAll("[data-stage]").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-stage]").forEach((item) => {
+          item.classList.remove("active");
+        });
+        button.classList.add("active");
+
+        const messages = {
+          sixth: "المرحلة المختارة: السادس الإعدادي العلمي. المواد المعروضة تجريبية.",
+          third: "المرحلة المختارة: الثالث المتوسط. ستُراجع المواد وفق المنهج الرسمي.",
+          future: "المراحل الأخرى ضمن خطة التطوير المستقبلية."
+        };
+
+        stageStatus.textContent = messages[button.dataset.stage];
+
+        document.getElementById("subjects").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
+
+    document.querySelectorAll("[data-subject]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const subject = button.dataset.subject;
+        alert(
+          "قسم " + subject +
+          "\\n\\nهذه نسخة تجريبية. ستُضاف الدروس والملخصات والاختبارات بعد إعداد المحتوى والتحقق من مصادره."
+        );
+      });
+    });
+  </script>
+</body>
+</html>
